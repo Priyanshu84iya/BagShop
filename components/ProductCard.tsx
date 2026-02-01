@@ -44,7 +44,7 @@ export default function ProductCard({ product, onAddToCart }: ProductCardProps) 
       <div className="p-6 pt-0">
         <BrutalButton
           fullWidth
-          onClick={(e) => {
+          onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
             e.stopPropagation();
             onAddToCart?.(product);
           }}
