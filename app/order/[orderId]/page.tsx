@@ -1,6 +1,5 @@
 "use client";
 
-import { use } from "react";
 import { getOrderById, formatDate } from "@/lib/utils";
 import { useCurrency } from "@/lib/CurrencyContext";
 import BrutalButton from "@/components/BrutalButton";
@@ -10,10 +9,9 @@ import Link from "next/link";
 export default function OrderPage({
   params,
 }: {
-  params: Promise<{ orderId: string }>;
+  params: { orderId: string };
 }) {
-  const resolvedParams = use(params);
-  const order = getOrderById(resolvedParams.orderId);
+  const order = getOrderById(params.orderId);
   const { formatPrice } = useCurrency();
   const router = useRouter();
 

@@ -1,6 +1,5 @@
 "use client";
 
-import { use } from "react";
 import Image from "next/image";
 import { getProductById } from "@/data/products";
 import BrutalButton from "@/components/BrutalButton";
@@ -11,10 +10,9 @@ import { useRouter } from "next/navigation";
 export default function ProductDetailPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 }) {
-  const resolvedParams = use(params);
-  const product = getProductById(resolvedParams.id);
+  const product = getProductById(params.id);
   const { addToCart } = useCart();
   const { formatPrice } = useCurrency();
   const router = useRouter();
